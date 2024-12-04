@@ -15,4 +15,5 @@
 local.properties
 *.xml
 /.idea
-/.idea
+*.bat
+*.webp
