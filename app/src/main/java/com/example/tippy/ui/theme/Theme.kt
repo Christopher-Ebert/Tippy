@@ -3,6 +3,7 @@ package com.example.tippy.ui.theme
 import android.app.Activity
 import android.os.Build
 import androidx.compose.foundation.isSystemInDarkTheme
+import androidx.compose.material3.ColorScheme
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.darkColorScheme
 import androidx.compose.material3.dynamicDarkColorScheme
@@ -33,6 +34,19 @@ private val LightColorScheme = lightColorScheme(
     */
 )
 
+private val CustomDarkColorScheme = darkColorScheme(
+    primary = CustomDarkP,
+    secondary = CustomDarkS,
+    tertiary = CustomDarkT
+)
+
+private val CustomLightColorScheme = lightColorScheme(
+    primary = CustomLightP,
+    secondary = CustomLightS,
+    tertiary = CustomLightT
+)
+
+
 @Composable
 fun TippyTheme(
     darkTheme: Boolean = isSystemInDarkTheme(),
@@ -46,8 +60,8 @@ fun TippyTheme(
             if (darkTheme) dynamicDarkColorScheme(context) else dynamicLightColorScheme(context)
         }
 
-        darkTheme -> DarkColorScheme
-        else -> LightColorScheme
+        darkTheme -> CustomDarkColorScheme
+        else -> CustomLightColorScheme
     }
 
     MaterialTheme(
